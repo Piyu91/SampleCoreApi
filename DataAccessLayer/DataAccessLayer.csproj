@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DataBaseEntity\DataBaseEntity.csproj" />
+    <ProjectReference Include="..\DomainModels\DomainModels.csproj" />
   </ItemGroup>
 
 </Project>

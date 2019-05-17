@@ -9,9 +9,11 @@ namespace BusinessLayer
     public class Business : IBusiness
     {
         private readonly IDataLayer _dataLayer;
+        Logger loggerins;
         public Business(IDataLayer dataLayer)
         {
             _dataLayer = dataLayer;
+            loggerins = Logger.GetInstance();
         }
 
         public Student getStudentById(int Id)
@@ -23,6 +25,9 @@ namespace BusinessLayer
             try
             {
                 var student = _dataLayer.GetStudentById(Id);
+                loggerins.LogData($"Student found from business with id: {Id}");
+
+
                 return new Student
                 {
                     ID = student.ID,
@@ -47,5 +52,8 @@ namespace BusinessLayer
                 DeptName = student.Dept.DeptName,
                 DeptLoc = student.Dept.DeptLocation
             }).ToList();
+
+
+        
     }
 }
